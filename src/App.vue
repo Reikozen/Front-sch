@@ -58,7 +58,6 @@ footer {
 }
 .container{
   min-height: 89vh;
-  background-color: rgb(255, 255, 255);
 }
 /* End Costum CSS */
 </style>

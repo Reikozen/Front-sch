@@ -1,20 +1,41 @@
 <template>
     <div>
-        <h1>Menampilkan Berita : {{ caps(tagname) }}</h1>
-        <hr>
-        <div class="artikel-list border mb-3" v-for="item in variable" :key="item.id">
-            <div class="w-100 border-bottom">
-                <h1 class="display-5">{{ item.title }}</h1>
-            </div>
-            <div class="row">
-                <div class="col-3">
-                    <img :src="item.image" class="w-100">
+        <!-- <h1>Menampilkan Berita : {{ caps(tagname) }}</h1>
+        <hr> -->
+        <div class="row border-between py-5">
+            <!-- Content -->
+            <div class="col-sm-8 col-xs-12">
+                <div class="artikel-list border mb-3" v-for="item in variable" :key="item.id">
+                    <div class="w-100 border-bottom">
+                        <h1 class="display-5">{{ item.title }}</h1>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <img :src="item.image" class="w-100">
+                        </div>
+                        <div class="col-9">
+                            {{ item.content }}
+                            <a :href=" item.link " class="btn btn-primary">Read More >></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-9">
-                    {{ item.content }}
-                    <a :href=" item.link " class="btn btn-primary">Read More >></a>
+            </div>
+            <!-- Content -->
+            <!-- SideBar -->
+            <div class="col-sm-4 col-xs-12 sidebar">
+                <div class="artikel-list border mb-3" v-for="item in variable" :key="item.id">
+                    <div class="w-100 border-bottom">
+                        <img :src="item.image" class="w-100">
+                    </div>
+                    <small>55d</small>
+                    <h3>{{ item.title }}</h3>
+                    <div class="">
+                        {{ item.content }}
+                        <a :href=" item.link " class="btn btn-primary">Read More >></a>
+                    </div>
                 </div>
             </div>
+            <!-- SideBar -->
         </div>
     </div>
 </template>
@@ -51,3 +72,18 @@ export default {
   
 }
 </script>
+<style>
+.border-between > [class*='col-']:before {
+   background: #e3e3e3;
+   bottom: 0;
+   content: " ";
+   left: 0;
+   position: absolute;
+   width: 1px;
+   top: 0;
+}
+
+.border-between > [class*='col-']:first-child:before {
+   display: none;
+}
+</style>

@@ -31,6 +31,12 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/Insert.vue'),
     },
     {
+      path: '/artikel/:artikel_id',
+      name: 'content',
+      props: true ,
+      component: () => import(/* webpackChunkName: "about" */ './views/Content.vue'),
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting

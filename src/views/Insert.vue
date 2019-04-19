@@ -1,15 +1,14 @@
 <template>
      <div>
-          <div>&nbsp;</div>
-          <div class="card text-left mt-3">
+          <div class="text-left p-5 ">
                <form action="#" method="post">
                     <div class="form-group">
                       <label for="">Title</label>
-                      <input type="text" name="title"  class="form-control" placeholder="Title" aria-describedby="title">
+                      <input type="text" name="title"  class="form-control w-lg-75" placeholder="Title" aria-describedby="title">
                     </div>
                     <div class="form-group">
                       <label for="">Tag</label>
-                         <select class="form-control" name="tag">
+                         <select class="form-control w-lg-25" name="tag">
                               <option value="volvo">Volvo</option>
                               <option value="saab">Saab</option>
                               <option value="mercedes">Mercedes</option>
@@ -18,7 +17,7 @@
                     </div>
                     <div class="form-group">
                       <label for="">Content</label>
-                      <ckeditor :editor="editor" ></ckeditor>
+                      <ckeditor class="document-editor" :editor="editor" ></ckeditor>
                     </div>
                     <!-- name="content" placeholder="Insert Content Here.." -->
                     
@@ -40,13 +39,19 @@ export default {
     data(){
          return{
               editor: ClassicEditor,
+              editorConfig:{
+                    removePlugins: [ 'Bold' ],
+                    toolbar: [ 'heading', '|',  'italic', 'link','|', 'bulletedList', 'numberedList', 'blockQuote' ],
+              }
          };
     }
 }
 </script>
 
 <style>
-
+@media (min-width: 768px) {
+     document-editor{
+          width: 200px;
+     }
+}
 </style>
-
-
